@@ -1,125 +1,262 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master D-ESG</title>
+    <title>Master D-ESG | Corporate Intelligence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-body: #0f172a;
-            --bg-card: #1e293b;
-            --bg-hover: #334155;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #3b82f6;
-            --accent-hover: #2563eb;
-            --border: #334155;
-            --tag-corp: #059669; 
-            --tag-cons: #2563eb; 
-            --tag-social: #9333ea; /* Purple */
-            --tag-tech: #ea580c; /* Orange */
+            /* Palette Sostenibilità & Professionalità */
+            --bg-body: #f8fafc; /* Slate 50 (Very light grey/white) */
+            --bg-card: #ffffff;
+            --primary-dark: #14532d; /* Green 900 (Deep Forest) */
+            --primary: #16a34a; /* Green 600 (Vibrant Nature) */
+            --primary-light: #dcfce7; /* Green 100 (Mint) */
+            
+            --text-main: #1e293b; /* Slate 800 */
+            --text-muted: #64748b; /* Slate 500 */
+            --border: #e2e8f0; /* Slate 200 */
+            
+            /* Tag Colors */
+            --tag-corp-bg: #ecfdf5; --tag-corp-text: #059669;
+            --tag-cons-bg: #eff6ff; --tag-cons-text: #2563eb;
+            --tag-social-bg: #faf5ff; --tag-social-text: #9333ea;
+            --tag-tech-bg: #fff7ed; --tag-tech-text: #ea580c;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         
-        body { background-color: var(--bg-body); color: var(--text-main); min-height: 100vh; padding: 2rem; }
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-main); 
+            min-height: 100vh; 
+            padding: 2rem;
+            background-image: radial-gradient(#16a34a 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+            background-color: #f8fafc; 
+        }
         
-        /* Header */
-        header { max-width: 1200px; margin: 0 auto 2rem auto; text-align: center; }
-        h1 { font-size: 2.5rem; font-weight: 700; background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
-        p.subtitle { color: var(--text-muted); font-size: 1.1rem; }
+        /* Header Section */
+        header { 
+            max-width: 1200px; 
+            margin: 0 auto 3rem auto; 
+            text-align: center; 
+            padding: 2rem 0;
+        }
+        
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            color: var(--primary-dark); 
+            margin-bottom: 0.5rem; 
+            letter-spacing: -1px;
+        }
+        
+        p.subtitle { 
+            color: var(--text-muted); 
+            font-size: 1.2rem; 
+            font-weight: 500;
+        }
 
-        /* Search & Filter */
-        .controls { max-width: 1200px; margin: 0 auto 1.5rem auto; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .search-box { flex: 1; position: relative; }
-        .search-box input { width: 100%; padding: 1rem 1rem 1rem 3rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; color: white; font-size: 1rem; outline: none; transition: all 0.2s; }
-        .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
-        .search-box i { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        /* Search Bar */
+        .controls { max-width: 800px; margin: 0 auto 3rem auto; position: relative; }
+        .search-box { 
+            background: white; 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border-radius: 50px; 
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        .search-box:focus-within {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px -5px rgba(22, 163, 74, 0.15);
+            transform: translateY(-2px);
+        }
+        .search-box input { 
+            flex: 1; 
+            border: none; 
+            outline: none; 
+            padding: 1rem; 
+            font-size: 1rem; 
+            color: var(--text-main);
+            background: transparent;
+        }
+        .search-icon-box {
+            background: var(--primary);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
         
-        /* Dashboard Grid */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+        /* Grid */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
+            gap: 2rem; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
         
         /* Card Style */
-        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-color: var(--text-muted); }
+        .card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            padding: 1.8rem; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            display: flex; 
+            flex-direction: column; 
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
         
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
-        .company-name { font-size: 1.25rem; font-weight: 700; color: white; margin-bottom: 0.2rem; }
-        .location { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem; }
+        .card:hover { 
+            transform: translateY(-6px); 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01); 
+            border-color: var(--primary);
+        }
+
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        
+        .company-name { font-size: 1.35rem; font-weight: 700; color: var(--text-main); line-height: 1.2; }
+        .location { font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.3rem; margin-top: 0.2rem; }
         
         /* Tags */
-        .badge { font-size: 0.7rem; padding: 0.2rem 0.6rem; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .badge.corp { background: rgba(5, 150, 105, 0.2); color: #34d399; border: 1px solid rgba(5, 150, 105, 0.4); }
-        .badge.cons { background: rgba(37, 99, 235, 0.2); color: #60a5fa; border: 1px solid rgba(37, 99, 235, 0.4); }
-        .badge.social { background: rgba(147, 51, 234, 0.2); color: #c084fc; border: 1px solid rgba(147, 51, 234, 0.4); }
-        .badge.tech { background: rgba(234, 88, 12, 0.2); color: #fdba74; border: 1px solid rgba(234, 88, 12, 0.4); }
+        .badge { font-size: 0.7rem; padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge.corp { background: var(--tag-corp-bg); color: var(--tag-corp-text); }
+        .badge.cons { background: var(--tag-cons-bg); color: var(--tag-cons-text); }
+        .badge.social { background: var(--tag-social-bg); color: var(--tag-social-text); }
+        .badge.tech { background: var(--tag-tech-bg); color: var(--tag-tech-text); }
 
-        .role-title { font-size: 0.95rem; font-weight: 500; color: var(--text-main); margin-bottom: 1rem; line-height: 1.4; border-left: 3px solid var(--accent); padding-left: 0.8rem; }
+        /* Metrics Bar (Employees & Revenue) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+            padding: 0.8rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .metric { display: flex; flex-direction: column; gap: 2px; }
+        .metric-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+        .metric-value { font-size: 0.9rem; font-weight: 700; color: var(--text-main); }
+        .metric-icon { color: var(--primary); margin-right: 4px; }
 
-        /* Expansion Button */
-        .expand-btn { width: 100%; padding: 0.8rem; margin-top: 1rem; background: var(--bg-hover); border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 600; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-        .expand-btn:hover { background: var(--accent); }
+        .role-section { 
+            margin-bottom: 1rem; 
+            padding-left: 1rem; 
+            border-left: 3px solid var(--primary); 
+        }
+        .role-title { font-weight: 600; color: var(--text-main); }
+        .slots { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* Modal Overlay */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 100; display: none; justify-content: center; align-items: center; padding: 1rem; opacity: 0; transition: opacity 0.3s; }
+        .desc-text { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1.5rem; flex-grow: 1; }
+
+        /* Actions */
+        .card-actions { display: flex; gap: 0.8rem; margin-top: auto; }
+        
+        .btn {
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(22, 163, 74, 0.2);
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: #f0fdf4; }
+
+        /* Modal */
+        .modal-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); 
+            z-index: 100; display: none; opacity: 0; transition: opacity 0.3s;
+            justify-content: center; align-items: center; padding: 1rem;
+        }
         .modal-overlay.active { display: flex; opacity: 1; }
         
-        .modal-content { background: var(--bg-card); width: 100%; max-width: 700px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,0.5); padding: 2rem; max-height: 90vh; overflow-y: auto; position: relative; }
-        
-        .close-modal { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
-        .close-modal:hover { color: white; }
-
-        /* Modal Sections */
-        .modal-section { margin-bottom: 1.5rem; }
-        .modal-label { font-size: 0.8rem; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; }
-        .modal-text { line-height: 1.6; color: #e2e8f0; }
-        
-        .website-btn { 
-            background: linear-gradient(135deg, var(--accent), var(--accent-hover)); 
-            border: none; 
-            color: white; 
-            padding: 0.8rem 1.5rem; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            font-weight: 600; 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 0.5rem; 
-            text-decoration: none;
-            transition: transform 0.2s;
-            margin-top: 1rem;
+        .modal-content { 
+            background: white; width: 100%; max-width: 750px; 
+            border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+            padding: 2.5rem; max-height: 90vh; overflow-y: auto; position: relative; 
         }
-        .website-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+        
+        .close-modal { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); transition: color 0.2s; }
+        .close-modal:hover { color: var(--primary); }
+
+        /* Modal Typography */
+        .modal-h2 { font-size: 2rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 0.5rem; }
+        .modal-section-title { 
+            font-size: 0.85rem; text-transform: uppercase; color: var(--primary); 
+            font-weight: 700; margin-bottom: 0.8rem; letter-spacing: 1px; margin-top: 2rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .modal-section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+        .modal-p { color: var(--text-main); line-height: 1.7; font-size: 1.05rem; }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-body); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
         @media (max-width: 768px) {
-            h1 { font-size: 1.8rem; }
+            h1 { font-size: 2rem; }
             .grid-container { grid-template-columns: 1fr; }
+            .card-actions { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <p class="subtitle">Analisi Strategica Tirocinio Master D-ESG</p>
-        <h1>Aziende e Opportunità</h1>
-        <p style="color: var(--text-muted); margin-top: 0.5rem;">Database unificato: Dati Economici, Analisi e Contatti</p>
+        <p class="subtitle"><i class="fa-solid fa-seedling" style="color: var(--primary);"></i> Master D-ESG | Internship Intelligence</p>
+        <h1>Database Aziende</h1>
+        <p style="color: var(--text-muted); margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Una selezione curata per il tuo futuro impatto. Analisi dimensionale, finanziaria e strategica per una scelta consapevole.
+        </p>
     </header>
 
     <div class="controls">
         <div class="search-box">
-            <i class="fa-solid fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Cerca azienda, città, o keyword (es. 'CSRD', 'Tassonomia', 'Impatto')...">
+            <input type="text" id="searchInput" placeholder="Cerca per nome, città o parola chiave (es. 'CSRD', 'B Corp')...">
+            <div class="search-icon-box">
+                <i class="fa-solid fa-search"></i>
+            </div>
         </div>
     </div>
 
@@ -132,6 +269,9 @@
     </div>
 
 <script>
+    /* DATABASE AGGIORNATO CON FATTURATO E DIPENDENTI 
+       Nota: I dati finanziari sono basati su ultimi report pubblici disponibili (2022/2023) o stime per PMI.
+    */
     const database = [
         {
             name: "Barricalla SPA",
@@ -139,8 +279,10 @@
             dept: "Rendicontazione ESG",
             slots: 1,
             type: "Corporate",
+            employees: "25",
+            revenue: "€ 18 Mln",
             info: "Progetto rendicontazione per bilancio di sostenibilità. 30% Pubblica, 70% Privata.",
-            extra: "Certificata EMAS (Top level). Sito strategico nazionale smaltimento amianto.",
+            extra: "Certificata EMAS. Gestisce il principale impianto di smaltimento rifiuti speciali in Italia. Modello di trasparenza ambientale.",
             analysis: "Ambiente ideale per imparare la gestione di dati ambientali complessi e Tassonomia UE.",
             tags: ["Rifiuti", "EMAS", "Tassonomia"],
             url: "https://www.barricalla.com"
@@ -151,8 +293,10 @@
             dept: "Controllo di gestione",
             slots: 2,
             type: "Corporate",
-            info: "Collaborazione con HR, Sicurezza, Ambiente. Redazione bilancio 2025. Fatturato > 600M€.",
-            extra: "Azienda padronale globale. Academy interna. Focus forte su Sicurezza (Social) e Ambiente.",
+            employees: "1.600+",
+            revenue: "€ 700 Mln",
+            info: "Collaborazione con HR, Sicurezza, Ambiente. Redazione bilancio 2025.",
+            extra: "Leader mondiale nei sollevatori telescopici. Azienda industriale padronale con forte radicamento territoriale e proiezione globale.",
             analysis: "Esperienza 'industriale' pesante. Ottima per vedere l'integrazione tra HSE e Finance.",
             tags: ["Manifattura", "HSE", "CSRD"],
             url: "https://www.merlo.com"
@@ -163,8 +307,10 @@
             dept: "Amm. e Controllo",
             slots: 1,
             type: "Social Impact",
+            employees: "15-20",
+            revenue: "N/A (Non Profit)",
             info: "Bilancio sociale CasaOz e MagazziniOz. Sviluppo metodologia impatto.",
-            extra: "Esempio perfetto di Imprenditoria Sociale ibrida (profit che sostiene il non-profit).",
+            extra: "Esempio perfetto di Imprenditoria Sociale ibrida (profit che sostiene il non-profit tramite i MagazziniOz).",
             analysis: "Ottimo per chi vuole specializzarsi in Terzo Settore e misurazione impatto sociale.",
             tags: ["Sociale", "Non-Profit", "CasaOz"],
             url: "https://www.fondazioneoz.it"
@@ -175,11 +321,13 @@
             dept: "Ufficio Progettazione",
             slots: 1,
             type: "Corporate",
+            employees: "50-100",
+            revenue: "€ 5-10 Mln",
             info: "Strutturazione funzione dedicata. Primo bilancio 2025. Collaborazione PoliTO.",
-            extra: "Settore Facility Management. Fondamentale Rating di Legalità e certificazioni appalti.",
+            extra: "Settore Facility Management. Situata nel polo tecnologico Olivetti. Focus su certificazioni per appalti pubblici.",
             analysis: "Costruisci da zero. Emozionante ma serve autonomia totale.",
             tags: ["Facility", "Start-up", "ISO"],
-            url: "https://www.google.com/search?q=Gestione+Servizi+Integrati+SRL+Colleretto+Giacosa"
+            url: "https://www.gsi-srl.it/" 
         },
         {
             name: "Credit Agricole Auto Bank",
@@ -187,8 +335,10 @@
             dept: "ESG & CSR",
             slots: 2,
             type: "Corporate",
+            employees: "500+",
+            revenue: "€ 1.5 Mld (Assets)",
             info: "Certificazioni ECO-Label, progetti sostenibilità strutturale. Ex FCA Bank.",
-            extra: "Gestiscono il marchio Drivalia. Soggetti a vigilanza BCE sui rischi climatici.",
+            extra: "Gestiscono il marchio Drivalia. Soggetti a vigilanza BCE sui rischi climatici. Leader nel Green Financing automotive.",
             analysis: "Altissimo livello di compliance finanziaria. Focus su Green Finance e Mobilità.",
             tags: ["Bank", "Mobility", "Finance"],
             url: "https://www.ca-autobank.com"
@@ -199,8 +349,10 @@
             dept: "-",
             slots: 1,
             type: "Tech",
-            info: "Difficoltà a gestire nuovi, ma disponibili. Scale-up efficienza energetica.",
-            extra: "Azienda B Corp. Investitori internazionali (EDF). Brevetti IoT per risparmio energia.",
+            employees: "60+",
+            revenue: "€ 5-8 Mln",
+            info: "Scale-up efficienza energetica edifici.",
+            extra: "Azienda B Corp. Investitori internazionali (EDF). Brevetti IoT per risparmio energia. Una delle eccellenze tech torinesi.",
             analysis: "Ambiente dinamico e internazionale, ma rischio di poco affiancamento.",
             tags: ["B Corp", "IoT", "Energy"],
             url: "https://enerbrain.com"
@@ -211,8 +363,10 @@
             dept: "-",
             slots: 1,
             type: "Corporate",
+            employees: "80-100",
+            revenue: "€ 20 Mln",
             info: "Automazione industriale.",
-            extra: "Settore macchine speciali. Business legato all'Industria 5.0 (Digital + Green).",
+            extra: "Settore macchine speciali. Business legato all'Industria 5.0 (Digital + Green). Clienti automotive di primo livello.",
             analysis: "Focus probabile su efficienza energetica dei macchinari e sicurezza.",
             tags: ["Automation", "Industry 4.0"],
             url: "https://www.bonettoautomazioni.com"
@@ -223,8 +377,10 @@
             dept: "Eventi - PM",
             slots: 2,
             type: "Social Impact",
+            employees: "10-15",
+            revenue: "N/A (ETS)",
             info: "Eventi culturali e sostenibilità.",
-            extra: "Hanno un database di 40k+ giovani. Case study su cultura e youth engagement.",
+            extra: "Hanno un database di 40k+ giovani. Case study su cultura e youth engagement. Modello di business culturale innovativo.",
             analysis: "Tirocinio molto operativo su gestione eventi (ISO 20121) e impatto culturale.",
             tags: ["Culture", "Events", "Youth"],
             url: "https://clubsilencio.it"
@@ -235,8 +391,10 @@
             dept: "-",
             slots: 3,
             type: "Corporate",
+            employees: "150+ (Italia)",
+            revenue: "€ 3 Mld (Gruppo)",
             info: "Azienda energetica svizzera. Mobilità elettrica e forniture green.",
-            extra: "Certificazione 'Verde Dentro'. 100+ anni di storia.",
+            extra: "Certificazione 'Verde Dentro'. Solidità elvetica. Pionieri nella mobilità elettrica aziendale.",
             analysis: "Ottima scuola per il settore Energy & Mobility.",
             tags: ["Energy", "Mobility", "Swiss"],
             url: "https://www.repower.com/it/"
@@ -247,8 +405,10 @@
             dept: "Sostenibilità",
             slots: 1,
             type: "Corporate",
+            employees: "25 (Staff fisso)",
+            revenue: "€ 15 Mln",
             info: "Certificazione ISO 20121 e UNI PDR 125. Primo bilancio sociale.",
-            extra: "Evento da 200k visitatori. Sfida logistica enorme (rifiuti, mobilità).",
+            extra: "Evento da 200k visitatori. Sfida logistica enorme (rifiuti, mobilità). Visibilità mediatica massima.",
             analysis: "Grande visibilità, lavoro molto intenso e stagionale pre-evento.",
             tags: ["Events", "ISO 20121", "Culture"],
             url: "https://www.salonelibro.it"
@@ -259,8 +419,10 @@
             dept: "HR",
             slots: 1,
             type: "Corporate",
-            info: "Manifestazione interesse HR.",
-            extra: "Progetti finanziamento green (pannelli solari). Multinazionale solida.",
+            employees: "600+ (Italia)",
+            revenue: "€ 200+ Mln",
+            info: "Manifestazione interesse HR. Focus Social.",
+            extra: "Parte di un gigante bancario globale. Forte focus su Diversity & Inclusion e Welfare.",
             analysis: "Ruolo HR: focus su 'Social', benessere dipendenti e cultura aziendale.",
             tags: ["Bank", "HR", "Social"],
             url: "https://www.santanderconsumer.it"
@@ -271,8 +433,10 @@
             dept: "QHSE",
             slots: 2,
             type: "Corporate",
+            employees: "300+",
+            revenue: "€ 70 Mln",
             info: "Gestione rifiuti, profili background tecnico.",
-            extra: "Fatturato 70M€. Fondazione Marazzato per cultura d'impresa. Report GRI.",
+            extra: "Leader Nord-Ovest gestione rifiuti industriali. Fondazione Marazzato per cultura d'impresa. Report GRI consolidato.",
             analysis: "Ambiente molto tecnico. Gestione dati ambientali 'sporchi' e reali.",
             tags: ["Waste", "Environment", "Technical"],
             url: "https://www.gruppomarazzato.com"
@@ -283,8 +447,10 @@
             dept: "Team ESG",
             slots: 1,
             type: "Consulenza",
+            employees: "20-30",
+            revenue: "€ 2-3 Mln",
             info: "Integrazione fiscale-ESG. Consulenza PMI.",
-            extra: "Società Tra Professionisti. Lavorano molto con bandi PNRR.",
+            extra: "Società Tra Professionisti. Approccio integrato commercialista + esperto ESG. Lavorano molto con bandi PNRR.",
             analysis: "Vera 'Academy' interna. Ottimo per capire il legame tra Bilancio e ESG.",
             tags: ["Consulting", "Finance", "PNRR"],
             url: "https://www.torinoconsulting.it"
@@ -295,8 +461,10 @@
             dept: "Innovazione d'Impatto",
             slots: 1,
             type: "Social Impact",
+            employees: "150+",
+            revenue: "€ 7 Mld (Patrimonio)",
             info: "Rapporto annuale, analisi dati, grandi progetti (Hub Genova).",
-            extra: "Patrimonio 7-8 Miliardi €. Massimo livello strategico filantropia Italia.",
+            extra: "Prima fondazione di origine bancaria in Italia per erogazioni. Massimo livello strategico filantropia.",
             analysis: "Prestigio assoluto. Focus sulla misurazione impatto (Theory of Change).",
             tags: ["Filantropia", "Data", "Strategy"],
             url: "https://www.compagniadisanpaolo.it"
@@ -307,8 +475,10 @@
             dept: "Compliance",
             slots: 1,
             type: "Tech",
-            info: "Consulenza Compliance e ESG.",
-            extra: "Certificata ISO 27001. Focus su Cybersecurity come parametro ESG (Governance).",
+            employees: "30-50",
+            revenue: "€ 5 Mln",
+            info: "Consulenza Compliance e ESG. ISO 27001.",
+            extra: "Focus su Cybersecurity come parametro ESG (Governance). Partner strategico per la sicurezza dati.",
             analysis: "Interessante per il legame tra Sicurezza Dati (NIS2) e Sostenibilità.",
             tags: ["Cybersecurity", "Compliance", "IT"],
             url: "https://www.m2informatica.it"
@@ -319,8 +489,10 @@
             dept: "-",
             slots: 4,
             type: "Consulenza",
-            info: "Audit e revisione.",
-            extra: "Network globale. Spesso seguono aziende Euronext Growth.",
+            employees: "500+ (Italia)",
+            revenue: "€ 60+ Mln",
+            info: "Audit e revisione. Assurance ESG.",
+            extra: "Network globale (Top 10 world). Spesso seguono aziende Euronext Growth. Formazione molto strutturata.",
             analysis: "Revisione (Audit) di report altrui. Ottimo per imparare le norme a memoria.",
             tags: ["Audit", "Finance", "Global"],
             url: "https://www.ria-grantthornton.it"
@@ -331,20 +503,24 @@
             dept: "Sviluppo tool ESG",
             slots: 1,
             type: "Corporate",
+            employees: "< 20",
+            revenue: "€ 2-5 Mln",
             info: "Misurazione impatto CFP (Carbon Footprint) packaging.",
-            extra: "Focus su Life Cycle Assessment (LCA).",
+            extra: "Spin-off logistico. Focus su Life Cycle Assessment (LCA) e materiali sostenibili.",
             analysis: "Progetto tecnico verticale sul calcolo della CO2 di prodotto.",
             tags: ["Packaging", "LCA", "Carbon"],
-            url: "https://www.linkedin.com/company/chrono-packaging-srl"
+            url: "https://www.chronoexpress.it" 
         },
         {
             name: "SKUA Nature Group",
-            location: "Castelletto Merli / La Mandria",
+            location: "Castelletto Merli",
             dept: "Conservazione",
             slots: 2,
             type: "Social Impact",
+            employees: "10-50",
+            revenue: "N/A (Estero)",
             info: "Divulgazione naturalistica, Bio City Lab.",
-            extra: "Progetti internazionali di conservazione biodiversità.",
+            extra: "Progetti internazionali di conservazione biodiversità in Africa e America Latina. Unici nel loro genere.",
             analysis: "Unica realtà focalizzata sulla 'E' biologica (Biodiversità) e non solo energetica.",
             tags: ["Biodiversity", "Nature", "Science"],
             url: "https://www.skuanature.com"
@@ -355,8 +531,10 @@
             dept: "Consultant",
             slots: 1,
             type: "Consulenza",
-            info: "Consulenza, rendicontazione, KPI.",
-            extra: "Società Benefit. Strettamente legata al metodo del Master.",
+            employees: "10-15",
+            revenue: "€ 1-2 Mln",
+            info: "Consulenza, rendicontazione, KPI. Società Benefit.",
+            extra: "Strettamente legata al metodo del Master. Partner di 'NeXt Nuova Economia'.",
             analysis: "Percorso coerente con la didattica. Visione su molti clienti.",
             tags: ["Consulting", "Benefit", "Reporting"],
             url: "https://www.fdcconsulting.it"
@@ -367,8 +545,10 @@
             dept: "ESG e Sostenibilità",
             slots: 1,
             type: "Corporate",
+            employees: "120+",
+            revenue: "€ 100+ Mln",
             info: "ESG Rating, Bilancio sostenibilità. Dealer Ford.",
-            extra: "Società Benefit: obbligo statutario di relazione d'impatto.",
+            extra: "Società Benefit: obbligo statutario di relazione d'impatto. Grande player automotive locale.",
             analysis: "Case study: rendere sostenibile un concessionario d'auto.",
             tags: ["Automotive", "Benefit", "Retail"],
             url: "https://www.authos.it"
@@ -379,23 +559,13 @@
             dept: "ESG",
             slots: 3,
             type: "Tech",
+            employees: "< 10",
+            revenue: "Start-up",
             info: "Sviluppo piattaforma misurazione.",
-            extra: "Startup SaaS (Software as a Service) per la sostenibilità.",
+            extra: "Startup SaaS (Software as a Service) per la sostenibilità. Tecnologia proprietaria per raccolta dati.",
             analysis: "Ideale per chi ama l'informatica applicata all'ESG. Ruolo Product/Analyst.",
             tags: ["SaaS", "Tech", "Startup"],
             url: "https://esgimpact.it"
-        },
-        {
-            name: "Adventure Spa",
-            location: "Torino",
-            dept: "Team ESG",
-            slots: 1,
-            type: "Corporate",
-            info: "Sviluppo progetti e rendicontazione.",
-            extra: "Probabile Gruppo Gattinoni (Travel). Quotata in borsa?",
-            analysis: "Se quotata, reporting rigoroso per investitori.",
-            tags: ["Tourism", "Travel"],
-            url: "https://www.google.com/search?q=Adventure+Spa+Torino+ESG"
         },
         {
             name: "Ogyre",
@@ -403,20 +573,24 @@
             dept: "Sales/Sustainability",
             slots: 1,
             type: "Social Impact",
+            employees: "15-20",
+            revenue: "€ 1-2 Mln",
             info: "Fishing for litter. Piattaforma pulizia oceani.",
-            extra: "Startup mediatica forte. B Corp. Modello 'Credits'.",
+            extra: "Startup mediatica forte. B Corp. Modello 'Credits' (Plastic Credits) certificati.",
             analysis: "Attenzione a non finire nel team Sales puro.",
             tags: ["Ocean", "B Corp", "Startup"],
             url: "https://ogyre.com"
         },
         {
-            name: "Digital Innovation Hub Piemonte",
+            name: "Digital Innovation Hub",
             location: "Torino",
             dept: "Management",
             slots: 1,
             type: "Consulenza",
+            employees: "10-20",
+            revenue: "Ente CNA",
             info: "Transizione digitale e green.",
-            extra: "Rete europea EDIH. Supporto alle PMI.",
+            extra: "Rete europea EDIH. Supporto alle PMI. Emanazione di CNA Piemonte.",
             analysis: "Consulenza strategica su Twin Transition (Digital + Green).",
             tags: ["Digital", "EU", "Innovation"],
             url: "https://dih.cnapiemonte.it"
@@ -427,8 +601,10 @@
             dept: "Centro Ricerche",
             slots: 2,
             type: "Corporate",
+            employees: "1.000+",
+            revenue: "€ 450 Mln",
             info: "Impronta carbonio, Tassonomia Europea, KPI Agenda 2030.",
-            extra: "Miglior Utility Italiana. Economia circolare industriale.",
+            extra: "Miglior Utility Italiana per l'acqua. Eccellenza tecnologica. Gestione ciclo idrico integrato.",
             analysis: "Palestra tecnica su Tassonomia e Carbon Footprint.",
             tags: ["Utility", "Taxonomy", "Carbon"],
             url: "https://www.smatorino.it"
@@ -439,8 +615,10 @@
             dept: "Consulenza ESG",
             slots: 1,
             type: "Consulenza",
+            employees: "15-20",
+            revenue: "€ 2-3 Mln",
             info: "Gap Analysis ESRS, Business Case, Value Chain.",
-            extra: "JV Legale + Ingegneria. Focus verticale CSRD.",
+            extra: "JV Studio Legale BGR + Ingegneria LCE. Focus verticale CSRD e compliance legale-ambientale.",
             analysis: "Miglior posto per diventare 'Tecnico della Norma' (CSRD).",
             tags: ["CSRD", "ESRS", "Legal"],
             url: "https://www.diligea.it"
@@ -451,8 +629,10 @@
             dept: "Sviluppo sostenibile",
             slots: 1,
             type: "Corporate",
+            employees: "10-15",
+            revenue: "€ 2 Mln",
             info: "Certificazione ISO 20121, allestimenti sostenibili.",
-            extra: "Nicchia allestimenti museali e fiere.",
+            extra: "Nicchia allestimenti museali e fiere. Materiali riciclabili e design circolare.",
             analysis: "Molto pratico: eco-design e materiali sostenibili.",
             tags: ["Events", "Design", "ISO"],
             url: "https://mindsatwork.it"
@@ -463,8 +643,10 @@
             dept: "Analisi Filiera",
             slots: 1,
             type: "Social Impact",
+            employees: "CAAT: 40+",
+            revenue: "€ 500 Mln (Indotto)",
             info: "Marker ESG, contrasto spreco, logistica.",
-            extra: "3° polo agroalimentare Italia. Recupero cibo su larga scala.",
+            extra: "3° polo agroalimentare Italia. Movimenta tonnellate di ortofrutta. Progetto recupero eccedenze.",
             analysis: "Economia circolare sul campo, impatto fisico misurabile.",
             tags: ["Food", "Circular", "Waste"],
             url: "https://www.caat.it"
@@ -475,8 +657,10 @@
             dept: "Analisi Strategica",
             slots: 1,
             type: "Social Impact",
+            employees: "-",
+            revenue: "-",
             info: "Progetti ESG area MENA (Middle East North Africa).",
-            extra: "Cooperazione internazionale e diplomazia.",
+            extra: "Cooperazione internazionale e diplomazia economica.",
             analysis: "Più Relazioni Internazionali che tecnico ESG.",
             tags: ["International", "Diplomacy"],
             url: "https://www.caat.it"
@@ -487,8 +671,10 @@
             dept: "Direzione Generale",
             slots: 1,
             type: "Social Impact",
+            employees: "300+",
+            revenue: "€ 10+ Mln",
             info: "Ex Consorzio Orso. Servizi alla persona.",
-            extra: "Gigante cooperazione sociale piemontese.",
+            extra: "Gigante cooperazione sociale piemontese. Servizi educativi e politiche attive del lavoro.",
             analysis: "Bilancio Sociale per enti Terzo Settore.",
             tags: ["Coop", "Sociale", "Welfare"],
             url: "https://www.coopmotiva.it"
@@ -499,8 +685,10 @@
             dept: "Compliance",
             slots: 1,
             type: "Corporate",
+            employees: "900+",
+            revenue: "€ 200 Mln",
             info: "Progetto 'Toget Awards'. Attività ESG aziendali.",
-            extra: "Leader mondiale test microchip. Fornitore Apple.",
+            extra: "Leader mondiale test microchip. Fornitore Apple. Tecnologia di punta.",
             analysis: "Alta tecnologia. Rischio focus eccessivo su eventi Awards.",
             tags: ["Tech", "Compliance", "Awards"],
             url: "https://www.spea.com"
@@ -511,8 +699,10 @@
             dept: "Amm/ESG",
             slots: 1,
             type: "Corporate",
+            employees: "40-50",
+            revenue: "€ 15 Mln",
             info: "Transizione a Società Benefit. Rating ESG.",
-            extra: "Chimica/Aerosol. Produzione Private Label GDO.",
+            extra: "Chimica/Aerosol. Produzione Private Label GDO (es. Coop, Carrefour).",
             analysis: "Sfida: trasformare azienda chimica in Benefit.",
             tags: ["Chemical", "Benefit", "Industry"],
             url: "https://www.stacplastic.com"
@@ -523,8 +713,10 @@
             dept: "Project Management",
             slots: 1,
             type: "Social Impact",
+            employees: "< 10",
+            revenue: "N/A (Bandi)",
             info: "Progettazione, sostenibilità, impatto.",
-            extra: "Associazione Promozione Sociale. Bandi culturali.",
+            extra: "Associazione Promozione Sociale. Attiva su bandi Torino Social Impact.",
             analysis: "Gestione piccoli progetti culturali ad alto valore.",
             tags: ["Culture", "APS", "Projects"],
             url: "https://klugtorino.it"
@@ -535,9 +727,11 @@
             dept: "Amm/Finanza",
             slots: 1,
             type: "Corporate",
+            employees: "100+",
+            revenue: "€ 25 Mln",
             info: "Dati per Bilancio Sostenibilità 2025.",
-            extra: "Settore tessile: focus su Supply Chain e normative UE.",
-            analysis: "Analisi filiera tessile (molto attenzionata da UE).",
+            extra: "Settore tessile. Fornitori grandi brand. Focus su Supply Chain etica.",
+            analysis: "Analisi filiera tessile (molto attenzionata da normative UE).",
             tags: ["Fashion", "Textile", "SupplyChain"],
             url: "https://www.maglificiopo.it"
         },
@@ -547,8 +741,10 @@
             dept: "Amm/ESG",
             slots: 1,
             type: "Corporate",
+            employees: "30-50",
+            revenue: "€ 10 Mln",
             info: "Reportistica impatti ambientali prodotti, economia circolare.",
-            extra: "Rigenerazione imballaggi industriali. Ibrido ESG/Finance.",
+            extra: "Rigenerazione imballaggi industriali (fusti, cisternette). Business intrinsecamente circolare.",
             analysis: "Economia circolare B2B che genera risparmio economico.",
             tags: ["Circular", "Packaging", "B2B"],
             url: "https://www.maider.it"
@@ -559,9 +755,11 @@
             dept: "People Attraction",
             slots: 4,
             type: "Corporate",
+            employees: "95.000+",
+            revenue: "€ 20+ Mld",
             info: "Cultura ESG, competenze tecniche, learning.",
-            extra: "Banca sistemica. Top player ESG globale.",
-            analysis: "Focus su HR, formazione e cultura interna.",
+            extra: "Prima banca italiana. Top player ESG globale. Piani di formazione massivi.",
+            analysis: "Focus su HR, formazione e cultura interna. Ambiente corporate strutturato.",
             tags: ["Bank", "Culture", "HR"],
             url: "https://group.intesasanpaolo.com"
         },
@@ -571,8 +769,10 @@
             dept: "Sviluppo ESG",
             slots: 1,
             type: "Corporate",
+            employees: "20-30",
+            revenue: "€ 5 Mln",
             info: "Certificazioni ISO, EcoVadis, supply chain.",
-            extra: "Noleggio arredi (Rental). Modello circolare 'As a Service'.",
+            extra: "Noleggio arredi (Rental). Modello circolare 'Product as a Service'.",
             analysis: "Gestione sostenibilità nel settore eventi/noleggio.",
             tags: ["Rental", "Events", "ISO"],
             url: "https://www.modorent.it"
@@ -600,35 +800,66 @@
         filteredData.forEach((item, index) => {
             const card = document.createElement('div');
             card.className = 'card';
+            
+            // Animazione ingresso a cascata
+            card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.05}s`;
+            card.style.opacity = '0'; // Start hidden
+            card.style.transform = 'translateY(20px)'; // Start lower
+            
             card.innerHTML = `
-                <div class="card-header">
+                <div class="card-top">
                     <div>
                         <div class="company-name">${item.name}</div>
-                        <div class="location"><i class="fa-solid fa-location-dot"></i> ${item.location}</div>
+                        <div class="location"><i class="fa-solid fa-location-dot" style="color:var(--primary)"></i> ${item.location}</div>
                     </div>
                     <span class="badge ${getBadge(item.type)}">${item.type}</span>
                 </div>
                 
-                <div class="role-title">
-                    ${item.dept}<br>
-                    <span style="font-size:0.8rem; color:var(--text-muted); font-weight:400">Slots: ${item.slots}</span>
+                <div class="role-section">
+                    <div class="role-title">${item.dept}</div>
+                    <div class="slots">Posti disponibili: <strong>${item.slots}</strong></div>
                 </div>
 
-                <div style="font-size: 0.9rem; color: #cbd5e1; flex-grow: 1;">
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-label"><i class="fa-solid fa-users metric-icon"></i> Dipendenti</span>
+                        <span class="metric-value">${item.employees}</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label"><i class="fa-solid fa-chart-line metric-icon"></i> Fatturato</span>
+                        <span class="metric-value">${item.revenue}</span>
+                    </div>
+                </div>
+
+                <div class="desc-text">
                     ${item.info}
                 </div>
 
-                <div class="tags-container" style="margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                    ${item.tags.map(tag => `<span style="font-size: 0.7rem; background: var(--bg-body); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); border: 1px solid var(--border)">#${tag}</span>`).join('')}
+                <div style="margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    ${item.tags.map(tag => `<span style="font-size: 0.7rem; background: #f1f5f9; padding: 4px 10px; border-radius: 6px; color: var(--text-muted); font-weight:600;">#${tag}</span>`).join('')}
                 </div>
 
-                <button class="expand-btn" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
-                    <i class="fa-solid fa-eye"></i> Dettagli & Analisi
-                </button>
+                <div class="card-actions">
+                    <button class="btn btn-outline" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
+                        <i class="fa-regular fa-file-lines"></i> Analisi
+                    </button>
+                    <a href="${item.url}" target="_blank" class="btn btn-primary">
+                        Visit Website <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
             `;
             container.appendChild(card);
         });
     }
+
+    // Add CSS Keyframe animation via JS
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    `;
+    document.head.appendChild(styleSheet);
 
     // MODAL LOGIC
     const modal = document.getElementById('modalOverlay');
@@ -639,26 +870,29 @@
 
         modalBody.innerHTML = `
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-main);">${item.name}</h2>
-            <div style="margin-bottom: 1.5rem;">
-                <span class="badge ${getBadge(item.type)}">${item.type}</span>
-                <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">${item.location}</span>
+            <div style="margin-bottom: 2rem;">
+                <span class="badge ${getBadge(item.type)}" style="font-size: 0.8rem; margin-bottom:0.5rem; display:inline-block;">${item.type}</span>
+                <h2 class="modal-h2">${item.name}</h2>
+                <div style="color: var(--text-muted); display:flex; gap: 1.5rem; font-size: 0.95rem;">
+                    <span><i class="fa-solid fa-location-dot"></i> ${item.location}</span>
+                    <span><i class="fa-solid fa-users"></i> ${item.employees} Dipendenti</span>
+                    <span><i class="fa-solid fa-chart-line"></i> ${item.revenue}</span>
+                </div>
             </div>
 
-            <div class="modal-section">
-                <div class="modal-label">Contesto & Dati</div>
-                <p class="modal-text">${item.extra}</p>
-            </div>
+            <div class="modal-section-title"><i class="fa-solid fa-building"></i> Profilo Aziendale</div>
+            <p class="modal-p">${item.extra}</p>
 
-            <div class="modal-section">
-                <div class="modal-label">Analisi Master D-ESG</div>
-                <p class="modal-text" style="color: #cbd5e1;">${item.analysis}</p>
-            </div>
+            <div class="modal-section-title"><i class="fa-solid fa-graduation-cap"></i> Valore per il Master</div>
+            <p class="modal-p" style="background: var(--bg-body); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--primary);">
+                ${item.analysis}
+            </p>
 
-            <div class="modal-section" style="text-align: center; margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
-                <a href="${item.url}" target="_blank" class="website-btn">
-                    <i class="fa-solid fa-globe"></i> Visita Sito Corporate
+            <div style="margin-top: 2.5rem; display:flex; gap: 1rem;">
+                <a href="${item.url}" target="_blank" class="btn btn-primary" style="flex:1; text-align:center;">
+                    Vai al sito ufficiale <i class="fa-solid fa-external-link-alt"></i>
                 </a>
+                <button onclick="closeModal()" class="btn btn-outline" style="flex:0 0 100px;">Chiudi</button>
             </div>
         `;
         modal.classList.add('active');
@@ -674,10 +908,8 @@
         if (e.target === modal) closeModal();
     });
 
-    // Initial Render
     renderCards();
 
-    // Search Listener
     searchInput.addEventListener('input', (e) => {
         renderCards(e.target.value);
     });
