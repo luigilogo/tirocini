@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master D-ESG | Internship Intelligence Database</title>
+    <title>Master D-ESG</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -19,8 +18,8 @@
             --accent: #3b82f6;
             --accent-hover: #2563eb;
             --border: #334155;
-            --tag-corp: #059669; /* Green */
-            --tag-cons: #2563eb; /* Blue */
+            --tag-corp: #059669; 
+            --tag-cons: #2563eb; 
             --tag-social: #9333ea; /* Purple */
             --tag-tech: #ea580c; /* Orange */
         }
@@ -61,12 +60,6 @@
 
         .role-title { font-size: 0.95rem; font-weight: 500; color: var(--text-main); margin-bottom: 1rem; line-height: 1.4; border-left: 3px solid var(--accent); padding-left: 0.8rem; }
 
-        /* Detail Section (Hidden by default) */
-        .details { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.9rem; color: var(--text-muted); }
-        .data-row { display: flex; justify-content: space-between; margin-bottom: 0.5rem; }
-        .data-label { font-weight: 600; color: var(--text-muted); }
-        .data-value { color: var(--text-main); text-align: right; }
-
         /* Expansion Button */
         .expand-btn { width: 100%; padding: 0.8rem; margin-top: 1rem; background: var(--bg-hover); border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 600; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
         .expand-btn:hover { background: var(--accent); }
@@ -84,10 +77,24 @@
         .modal-section { margin-bottom: 1.5rem; }
         .modal-label { font-size: 0.8rem; text-transform: uppercase; color: var(--accent); font-weight: 700; margin-bottom: 0.5rem; letter-spacing: 1px; }
         .modal-text { line-height: 1.6; color: #e2e8f0; }
-        .highlight-box { background: rgba(59, 130, 246, 0.1); border-left: 4px solid var(--accent); padding: 1rem; border-radius: 0 8px 8px 0; margin-top: 0.5rem; }
         
-        .copy-btn { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 0.3rem 0.8rem; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
-        .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .website-btn { 
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover)); 
+            border: none; 
+            color: white; 
+            padding: 0.8rem 1.5rem; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            text-decoration: none;
+            transition: transform 0.2s;
+            margin-top: 1rem;
+        }
+        .website-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
 
         /* Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -105,8 +112,8 @@
 
     <header>
         <p class="subtitle">Analisi Strategica Tirocinio Master D-ESG</p>
-        <h1>Internship Intelligence DB</h1>
-        <p style="color: var(--text-muted); margin-top: 0.5rem;">Database unificato: Maturità ESG, Dati Economici e Strategia di Colloquio</p>
+        <h1>Aziende e Opportunità</h1>
+        <p style="color: var(--text-muted); margin-top: 0.5rem;">Database unificato: Dati Economici, Analisi e Contatti</p>
     </header>
 
     <div class="controls">
@@ -125,7 +132,6 @@
     </div>
 
 <script>
-    // DATASET COMPLETO (Unione delle tue due richieste)
     const database = [
         {
             name: "Barricalla SPA",
@@ -133,13 +139,11 @@
             dept: "Rendicontazione ESG",
             slots: 1,
             type: "Corporate",
-            status: "Molto Strutturato",
-            statusColor: "green",
             info: "Progetto rendicontazione per bilancio di sostenibilità. 30% Pubblica, 70% Privata.",
             extra: "Certificata EMAS (Top level). Sito strategico nazionale smaltimento amianto.",
             analysis: "Ambiente ideale per imparare la gestione di dati ambientali complessi e Tassonomia UE.",
-            question: "Lavorerò sulla Tassonomia Europea applicata ai rifiuti pericolosi o mi limiterò alla raccolta dati standard GRI?",
-            tags: ["Rifiuti", "EMAS", "Tassonomia"]
+            tags: ["Rifiuti", "EMAS", "Tassonomia"],
+            url: "https://www.barricalla.com"
         },
         {
             name: "Merlo SPA",
@@ -147,83 +151,47 @@
             dept: "Controllo di gestione",
             slots: 2,
             type: "Corporate",
-            status: "Molto Strutturato",
-            statusColor: "green",
             info: "Collaborazione con HR, Sicurezza, Ambiente. Redazione bilancio 2025. Fatturato > 600M€.",
             extra: "Azienda padronale globale. Academy interna. Focus forte su Sicurezza (Social) e Ambiente.",
             analysis: "Esperienza 'industriale' pesante. Ottima per vedere l'integrazione tra HSE e Finance.",
-            question: "Il Bilancio 2025 sarà già conforme alla nuova direttiva CSRD obbligatoria o è ancora un esercizio volontario?",
-            tags: ["Manifattura", "HSE", "CSRD"]
+            tags: ["Manifattura", "HSE", "CSRD"],
+            url: "https://www.merlo.com"
         },
         {
-            name: "Diligea srl",
+            name: "Fondazione OZ",
             location: "Torino",
-            dept: "Consulenza ESG",
-            slots: 1,
-            type: "Consulenza",
-            status: "Tecnico/Specialistico",
-            statusColor: "blue",
-            info: "Supporto progetti rendicontazione. Gap Analysis ESRS. Analisi Business Case.",
-            extra: "Joint Venture tra Studio Legale BGR e Ingegneria Ambientale. Focus verticale CSRD.",
-            analysis: "Il miglior posto per diventare 'Tecnico della Norma'. Unisce diritto e ingegneria.",
-            question: "Su quali settori industriali operano principalmente i vostri clienti per la Gap Analysis ESRS?",
-            tags: ["CSRD", "ESRS", "Legal"]
-        },
-        {
-            name: "Fondazione Compagnia di San Paolo",
-            location: "Torino",
-            dept: "Direzione Innovazione d'Impatto",
+            dept: "Amm. e Controllo",
             slots: 1,
             type: "Social Impact",
-            status: "Visionario",
-            statusColor: "purple",
-            info: "Supporto redazione rapporto annuale e gestione grandi progetti (es. Hub Genova).",
-            extra: "Patrimonio 7-8 Miliardi €. Massimo livello strategico della filantropia in Italia.",
-            analysis: "Prestigio assoluto. Focus sulla misurazione dell'impatto sociale (Theory of Change).",
-            question: "Il mio ruolo sarà focalizzato su un singolo progetto o sulla metodologia trasversale di valutazione d'impatto della Fondazione?",
-            tags: ["Filantropia", "Data Analysis", "Strategia"]
+            info: "Bilancio sociale CasaOz e MagazziniOz. Sviluppo metodologia impatto.",
+            extra: "Esempio perfetto di Imprenditoria Sociale ibrida (profit che sostiene il non-profit).",
+            analysis: "Ottimo per chi vuole specializzarsi in Terzo Settore e misurazione impatto sociale.",
+            tags: ["Sociale", "Non-Profit", "CasaOz"],
+            url: "https://www.fondazioneoz.it"
         },
         {
-            name: "SMAT Torino",
+            name: "Gestione Servizi Integrati SRL",
+            location: "Colleretto Giacosa",
+            dept: "Ufficio Progettazione",
+            slots: 1,
+            type: "Corporate",
+            info: "Strutturazione funzione dedicata. Primo bilancio 2025. Collaborazione PoliTO.",
+            extra: "Settore Facility Management. Fondamentale Rating di Legalità e certificazioni appalti.",
+            analysis: "Costruisci da zero. Emozionante ma serve autonomia totale.",
+            tags: ["Facility", "Start-up", "ISO"],
+            url: "https://www.google.com/search?q=Gestione+Servizi+Integrati+SRL+Colleretto+Giacosa"
+        },
+        {
+            name: "Credit Agricole Auto Bank",
             location: "Torino",
-            dept: "Centro Ricerche",
+            dept: "ESG & CSR",
             slots: 2,
             type: "Corporate",
-            status: "Eccellenza Tecnica",
-            statusColor: "green",
-            info: "Calcolo impronta carbonio e KPI Tassonomia Europea. Monitoraggio Agenda 2030.",
-            extra: "Miglior Utility Italiana. Economia circolare su scala industriale (Biometano da fanghi).",
-            analysis: "Palestra tecnica durissima ma formativa su Tassonomia e Carbon Footprint.",
-            question: "Essendo nel Centro Ricerche, il tutor sarà un ingegnere ambientale o un manager della sostenibilità?",
-            tags: ["Utility", "Tassonomia", "Carbon Footprint"]
-        },
-        {
-            name: "Intesa Sanpaolo",
-            location: "Torino",
-            dept: "People Attraction & Culture",
-            slots: 4,
-            type: "Corporate",
-            status: "Top Player",
-            statusColor: "green",
-            info: "Sviluppo competenze tecniche ESG. Diffusione cultura interna/esterna.",
-            extra: "Banca sistemica. Spesso nei top ranking mondiali ESG (Corporate Knights).",
-            analysis: "Ruolo più 'HR/Culturale' che tecnico-rendicontativo. Ottimo per networking e processi corporate.",
-            question: "Quanto spazio ci sarà per l'analisi dei dati rispetto alle attività di organizzazione e cultura interna?",
-            tags: ["Bank", "HR", "Culture"]
-        },
-        {
-            name: "Solidarietà Alimentare (CAAT)",
-            location: "Grugliasco (TO)",
-            dept: "Analisi Filiera / Spreco",
-            slots: 1,
-            type: "Social Impact",
-            status: "Operativo/Impatto",
-            statusColor: "purple",
-            info: "Marker ESG filiera agroalimentare. Contrasto allo spreco. 3° polo agroalimentare Italia.",
-            extra: "Economia circolare reale: recupero tonnellate di cibo fresco. Impatto misurabile fisicamente.",
-            analysis: "Unico per chi vuole vedere l'economia circolare sul campo e non solo su Excel.",
-            question: "Quali metriche specifiche usate per calcolare il valore sociale del cibo recuperato (es. SROI)?",
-            tags: ["Food", "Circular Economy", "Spreco"]
+            info: "Certificazioni ECO-Label, progetti sostenibilità strutturale. Ex FCA Bank.",
+            extra: "Gestiscono il marchio Drivalia. Soggetti a vigilanza BCE sui rischi climatici.",
+            analysis: "Altissimo livello di compliance finanziaria. Focus su Green Finance e Mobilità.",
+            tags: ["Bank", "Mobility", "Finance"],
+            url: "https://www.ca-autobank.com"
         },
         {
             name: "Enerbrain",
@@ -231,83 +199,35 @@
             dept: "-",
             slots: 1,
             type: "Tech",
-            status: "Innovazione",
-            statusColor: "orange",
             info: "Difficoltà a gestire nuovi, ma disponibili. Scale-up efficienza energetica.",
             extra: "Azienda B Corp. Investitori internazionali (EDF). Brevetti IoT per risparmio energia.",
-            analysis: "Ambiente dinamico e internazionale, ma rischio di poco affiancamento (vedi note).",
-            question: "Viste le note sulla 'difficoltà a gestire', avrò un progetto autonomo o farò solo shadowing?",
-            tags: ["B Corp", "IoT", "Energy"]
+            analysis: "Ambiente dinamico e internazionale, ma rischio di poco affiancamento.",
+            tags: ["B Corp", "IoT", "Energy"],
+            url: "https://enerbrain.com"
         },
         {
-            name: "Authos S.p.A SB",
-            location: "Moncalieri (TO)",
-            dept: "ESG e Sostenibilità",
+            name: "Bonetto Automazioni",
+            location: "Pinerolo",
+            dept: "-",
             slots: 1,
             type: "Corporate",
-            status: "In Transizione",
-            statusColor: "green",
-            info: "ESG Rating, Bilancio sostenibilità. Dealer Ford.",
-            extra: "È una Società Benefit: obbligo statutario di relazione d'impatto. Settore Auto in crisi/evoluzione.",
-            analysis: "Case study interessante: come rendere sostenibile un concessionario d'auto?",
-            question: "Come conciliate la vendita di veicoli (business core) con lo status di Società Benefit nel bilancio?",
-            tags: ["Automotive", "Società Benefit", "Retail"]
+            info: "Automazione industriale.",
+            extra: "Settore macchine speciali. Business legato all'Industria 5.0 (Digital + Green).",
+            analysis: "Focus probabile su efficienza energetica dei macchinari e sicurezza.",
+            tags: ["Automation", "Industry 4.0"],
+            url: "https://www.bonettoautomazioni.com"
         },
         {
-            name: "Torino Consulting STP",
+            name: "Fondazione Club Silencio",
             location: "Torino",
-            dept: "Team ESG / Fiscale",
-            slots: 1,
-            type: "Consulenza",
-            status: "Strutturato",
-            statusColor: "blue",
-            info: "Programma formativo su GRI, CSRD, Taxonomy. Integrazione Fiscale-ESG.",
-            extra: "Società Tra Professionisti. Lavorano molto con bandi PNRR per le PMI.",
-            analysis: "Vera 'Academy' interna. Ottimo per capire il legame tra Bilancio Civilistico e ESG.",
-            question: "Il tirocinio permette di vedere praticamente come l'ESG influenza il rating bancario dei clienti?",
-            tags: ["GRI", "Consulting", "Finance"]
-        },
-        {
-            name: "SPEA S.P.A.",
-            location: "Volpiano (TO)",
-            dept: "Compliance",
-            slots: 1,
-            type: "Corporate",
-            status: "Tech Leader",
-            statusColor: "green",
-            info: "Progetto 'Toget Awards' per premiare aziende sostenibili. Redazione bando.",
-            extra: "Leader mondiale test microchip. Fornitore Apple/Bosch. Alta tecnologia.",
-            analysis: "Rischio focus troppo su 'Eventi/Marketing' (Awards) invece che sul bilancio tecnico interno.",
-            question: "Oltre alla gestione degli Awards, parteciperò alla raccolta dati per il bilancio di sostenibilità di SPEA?",
-            tags: ["Electronics", "Awards", "Compliance"]
-        },
-        {
-            name: "Gestione Servizi Integrati SRL",
-            location: "Colleretto Giacosa (TO)",
-            dept: "Ufficio Progettazione",
-            slots: 1,
-            type: "Corporate",
-            status: "Start-up Phase",
-            statusColor: "orange",
-            info: "Strutturazione funzione dedicata. Primo bilancio 2025. Collaborazione PoliTO.",
-            extra: "Settore Facility Management. Fondamentale Rating di Legalità e certificazioni appalti.",
-            analysis: "Costruisci da zero. Emozionante ma serve autonomia totale.",
-            question: "Chi sarà il mio mentor tecnico visto che la funzione si sta strutturando ora?",
-            tags: ["Facility", "Start-up", "ISO"]
-        },
-        {
-            name: "Ogyre",
-            location: "Milano (o remoto?)",
-            dept: "Sales / Sostenibilità",
-            slots: 1,
+            dept: "Eventi - PM",
+            slots: 2,
             type: "Social Impact",
-            status: "Hype",
-            statusColor: "purple",
-            info: "Fishing for litter. Piattaforma pulizia oceani. B Corp.",
-            extra: "Startup mediatica molto forte. Modello 'Credits' per la plastica.",
-            analysis: "Attenzione a non finire nel team Sales a fare il commerciale puro.",
-            question: "Il ruolo nel team sostenibilità prevede analisi dei dati di recupero o supporto alla vendita dei servizi?",
-            tags: ["Ocean", "B Corp", "Startup"]
+            info: "Eventi culturali e sostenibilità.",
+            extra: "Hanno un database di 40k+ giovani. Case study su cultura e youth engagement.",
+            analysis: "Tirocinio molto operativo su gestione eventi (ISO 20121) e impatto culturale.",
+            tags: ["Culture", "Events", "Youth"],
+            url: "https://clubsilencio.it"
         },
         {
             name: "Repower Vendita Italia",
@@ -315,13 +235,143 @@
             dept: "-",
             slots: 3,
             type: "Corporate",
-            status: "Solido",
-            statusColor: "green",
             info: "Azienda energetica svizzera. Mobilità elettrica e forniture green.",
             extra: "Certificazione 'Verde Dentro'. 100+ anni di storia.",
             analysis: "Ottima scuola per il settore Energy & Mobility.",
-            question: "Il tirocinio verterà sulla compliance normativa o sullo sviluppo di prodotti commerciali green?",
-            tags: ["Energy", "Mobility", "Swiss"]
+            tags: ["Energy", "Mobility", "Swiss"],
+            url: "https://www.repower.com/it/"
+        },
+        {
+            name: "Salone Libro Srl",
+            location: "Torino",
+            dept: "Sostenibilità",
+            slots: 1,
+            type: "Corporate",
+            info: "Certificazione ISO 20121 e UNI PDR 125. Primo bilancio sociale.",
+            extra: "Evento da 200k visitatori. Sfida logistica enorme (rifiuti, mobilità).",
+            analysis: "Grande visibilità, lavoro molto intenso e stagionale pre-evento.",
+            tags: ["Events", "ISO 20121", "Culture"],
+            url: "https://www.salonelibro.it"
+        },
+        {
+            name: "Santander Consumer Bank",
+            location: "Torino",
+            dept: "HR",
+            slots: 1,
+            type: "Corporate",
+            info: "Manifestazione interesse HR.",
+            extra: "Progetti finanziamento green (pannelli solari). Multinazionale solida.",
+            analysis: "Ruolo HR: focus su 'Social', benessere dipendenti e cultura aziendale.",
+            tags: ["Bank", "HR", "Social"],
+            url: "https://www.santanderconsumer.it"
+        },
+        {
+            name: "Marazzato Soluzioni Ambientali",
+            location: "Vercelli/Villastellone",
+            dept: "QHSE",
+            slots: 2,
+            type: "Corporate",
+            info: "Gestione rifiuti, profili background tecnico.",
+            extra: "Fatturato 70M€. Fondazione Marazzato per cultura d'impresa. Report GRI.",
+            analysis: "Ambiente molto tecnico. Gestione dati ambientali 'sporchi' e reali.",
+            tags: ["Waste", "Environment", "Technical"],
+            url: "https://www.gruppomarazzato.com"
+        },
+        {
+            name: "Torino Consulting STP",
+            location: "Torino",
+            dept: "Team ESG",
+            slots: 1,
+            type: "Consulenza",
+            info: "Integrazione fiscale-ESG. Consulenza PMI.",
+            extra: "Società Tra Professionisti. Lavorano molto con bandi PNRR.",
+            analysis: "Vera 'Academy' interna. Ottimo per capire il legame tra Bilancio e ESG.",
+            tags: ["Consulting", "Finance", "PNRR"],
+            url: "https://www.torinoconsulting.it"
+        },
+        {
+            name: "Fondazione Compagnia di San Paolo",
+            location: "Torino",
+            dept: "Innovazione d'Impatto",
+            slots: 1,
+            type: "Social Impact",
+            info: "Rapporto annuale, analisi dati, grandi progetti (Hub Genova).",
+            extra: "Patrimonio 7-8 Miliardi €. Massimo livello strategico filantropia Italia.",
+            analysis: "Prestigio assoluto. Focus sulla misurazione impatto (Theory of Change).",
+            tags: ["Filantropia", "Data", "Strategy"],
+            url: "https://www.compagniadisanpaolo.it"
+        },
+        {
+            name: "M2 Informatica SRL",
+            location: "San Mauro T.se",
+            dept: "Compliance",
+            slots: 1,
+            type: "Tech",
+            info: "Consulenza Compliance e ESG.",
+            extra: "Certificata ISO 27001. Focus su Cybersecurity come parametro ESG (Governance).",
+            analysis: "Interessante per il legame tra Sicurezza Dati (NIS2) e Sostenibilità.",
+            tags: ["Cybersecurity", "Compliance", "IT"],
+            url: "https://www.m2informatica.it"
+        },
+        {
+            name: "RIA Grant Thornton SPA",
+            location: "Torino",
+            dept: "-",
+            slots: 4,
+            type: "Consulenza",
+            info: "Audit e revisione.",
+            extra: "Network globale. Spesso seguono aziende Euronext Growth.",
+            analysis: "Revisione (Audit) di report altrui. Ottimo per imparare le norme a memoria.",
+            tags: ["Audit", "Finance", "Global"],
+            url: "https://www.ria-grantthornton.it"
+        },
+        {
+            name: "Chrono Packaging",
+            location: "Settimo T.se",
+            dept: "Sviluppo tool ESG",
+            slots: 1,
+            type: "Corporate",
+            info: "Misurazione impatto CFP (Carbon Footprint) packaging.",
+            extra: "Focus su Life Cycle Assessment (LCA).",
+            analysis: "Progetto tecnico verticale sul calcolo della CO2 di prodotto.",
+            tags: ["Packaging", "LCA", "Carbon"],
+            url: "https://www.linkedin.com/company/chrono-packaging-srl"
+        },
+        {
+            name: "SKUA Nature Group",
+            location: "Castelletto Merli / La Mandria",
+            dept: "Conservazione",
+            slots: 2,
+            type: "Social Impact",
+            info: "Divulgazione naturalistica, Bio City Lab.",
+            extra: "Progetti internazionali di conservazione biodiversità.",
+            analysis: "Unica realtà focalizzata sulla 'E' biologica (Biodiversità) e non solo energetica.",
+            tags: ["Biodiversity", "Nature", "Science"],
+            url: "https://www.skuanature.com"
+        },
+        {
+            name: "FDC Consulting Digital ESG",
+            location: "Torino",
+            dept: "Consultant",
+            slots: 1,
+            type: "Consulenza",
+            info: "Consulenza, rendicontazione, KPI.",
+            extra: "Società Benefit. Strettamente legata al metodo del Master.",
+            analysis: "Percorso coerente con la didattica. Visione su molti clienti.",
+            tags: ["Consulting", "Benefit", "Reporting"],
+            url: "https://www.fdcconsulting.it"
+        },
+        {
+            name: "Authos S.p.A SB",
+            location: "Moncalieri",
+            dept: "ESG e Sostenibilità",
+            slots: 1,
+            type: "Corporate",
+            info: "ESG Rating, Bilancio sostenibilità. Dealer Ford.",
+            extra: "Società Benefit: obbligo statutario di relazione d'impatto.",
+            analysis: "Case study: rendere sostenibile un concessionario d'auto.",
+            tags: ["Automotive", "Benefit", "Retail"],
+            url: "https://www.authos.it"
         },
         {
             name: "ESG Impact SB",
@@ -329,13 +379,203 @@
             dept: "ESG",
             slots: 3,
             type: "Tech",
-            status: "Tech/SaaS",
-            statusColor: "orange",
-            info: "Supporto sviluppo piattaforma misurazione. Startup collegata a FDC.",
-            extra: "Software as a Service (SaaS) per la sostenibilità. Futuro del reporting.",
-            analysis: "Ideale se ti piace l'informatica applicata all'ESG. Ruolo da Product Manager/Analyst.",
-            question: "Lavorerò sullo sviluppo delle logiche del software o sulla consulenza ai clienti che lo usano?",
-            tags: ["Software", "SaaS", "StartUp"]
+            info: "Sviluppo piattaforma misurazione.",
+            extra: "Startup SaaS (Software as a Service) per la sostenibilità.",
+            analysis: "Ideale per chi ama l'informatica applicata all'ESG. Ruolo Product/Analyst.",
+            tags: ["SaaS", "Tech", "Startup"],
+            url: "https://esgimpact.it"
+        },
+        {
+            name: "Adventure Spa",
+            location: "Torino",
+            dept: "Team ESG",
+            slots: 1,
+            type: "Corporate",
+            info: "Sviluppo progetti e rendicontazione.",
+            extra: "Probabile Gruppo Gattinoni (Travel). Quotata in borsa?",
+            analysis: "Se quotata, reporting rigoroso per investitori.",
+            tags: ["Tourism", "Travel"],
+            url: "https://www.google.com/search?q=Adventure+Spa+Torino+ESG"
+        },
+        {
+            name: "Ogyre",
+            location: "Milano/Remoto",
+            dept: "Sales/Sustainability",
+            slots: 1,
+            type: "Social Impact",
+            info: "Fishing for litter. Piattaforma pulizia oceani.",
+            extra: "Startup mediatica forte. B Corp. Modello 'Credits'.",
+            analysis: "Attenzione a non finire nel team Sales puro.",
+            tags: ["Ocean", "B Corp", "Startup"],
+            url: "https://ogyre.com"
+        },
+        {
+            name: "Digital Innovation Hub Piemonte",
+            location: "Torino",
+            dept: "Management",
+            slots: 1,
+            type: "Consulenza",
+            info: "Transizione digitale e green.",
+            extra: "Rete europea EDIH. Supporto alle PMI.",
+            analysis: "Consulenza strategica su Twin Transition (Digital + Green).",
+            tags: ["Digital", "EU", "Innovation"],
+            url: "https://dih.cnapiemonte.it"
+        },
+        {
+            name: "SMAT Torino",
+            location: "Torino",
+            dept: "Centro Ricerche",
+            slots: 2,
+            type: "Corporate",
+            info: "Impronta carbonio, Tassonomia Europea, KPI Agenda 2030.",
+            extra: "Miglior Utility Italiana. Economia circolare industriale.",
+            analysis: "Palestra tecnica su Tassonomia e Carbon Footprint.",
+            tags: ["Utility", "Taxonomy", "Carbon"],
+            url: "https://www.smatorino.it"
+        },
+        {
+            name: "Diligea srl",
+            location: "Torino",
+            dept: "Consulenza ESG",
+            slots: 1,
+            type: "Consulenza",
+            info: "Gap Analysis ESRS, Business Case, Value Chain.",
+            extra: "JV Legale + Ingegneria. Focus verticale CSRD.",
+            analysis: "Miglior posto per diventare 'Tecnico della Norma' (CSRD).",
+            tags: ["CSRD", "ESRS", "Legal"],
+            url: "https://www.diligea.it"
+        },
+        {
+            name: "Minds At Work S.r.l.",
+            location: "Bruino",
+            dept: "Sviluppo sostenibile",
+            slots: 1,
+            type: "Corporate",
+            info: "Certificazione ISO 20121, allestimenti sostenibili.",
+            extra: "Nicchia allestimenti museali e fiere.",
+            analysis: "Molto pratico: eco-design e materiali sostenibili.",
+            tags: ["Events", "Design", "ISO"],
+            url: "https://mindsatwork.it"
+        },
+        {
+            name: "Solidarietà alimentare (CAAT)",
+            location: "Grugliasco",
+            dept: "Analisi Filiera",
+            slots: 1,
+            type: "Social Impact",
+            info: "Marker ESG, contrasto spreco, logistica.",
+            extra: "3° polo agroalimentare Italia. Recupero cibo su larga scala.",
+            analysis: "Economia circolare sul campo, impatto fisico misurabile.",
+            tags: ["Food", "Circular", "Waste"],
+            url: "https://www.caat.it"
+        },
+        {
+            name: "Solidarietà alimentare (MENA)",
+            location: "Grugliasco",
+            dept: "Analisi Strategica",
+            slots: 1,
+            type: "Social Impact",
+            info: "Progetti ESG area MENA (Middle East North Africa).",
+            extra: "Cooperazione internazionale e diplomazia.",
+            analysis: "Più Relazioni Internazionali che tecnico ESG.",
+            tags: ["International", "Diplomacy"],
+            url: "https://www.caat.it"
+        },
+        {
+            name: "Coop. Sociale Motiva",
+            location: "Torino",
+            dept: "Direzione Generale",
+            slots: 1,
+            type: "Social Impact",
+            info: "Ex Consorzio Orso. Servizi alla persona.",
+            extra: "Gigante cooperazione sociale piemontese.",
+            analysis: "Bilancio Sociale per enti Terzo Settore.",
+            tags: ["Coop", "Sociale", "Welfare"],
+            url: "https://www.coopmotiva.it"
+        },
+        {
+            name: "SPEA S.P.A.",
+            location: "Volpiano",
+            dept: "Compliance",
+            slots: 1,
+            type: "Corporate",
+            info: "Progetto 'Toget Awards'. Attività ESG aziendali.",
+            extra: "Leader mondiale test microchip. Fornitore Apple.",
+            analysis: "Alta tecnologia. Rischio focus eccessivo su eventi Awards.",
+            tags: ["Tech", "Compliance", "Awards"],
+            url: "https://www.spea.com"
+        },
+        {
+            name: "Stac Plastic Spray Srl",
+            location: "Settimo T.se",
+            dept: "Amm/ESG",
+            slots: 1,
+            type: "Corporate",
+            info: "Transizione a Società Benefit. Rating ESG.",
+            extra: "Chimica/Aerosol. Produzione Private Label GDO.",
+            analysis: "Sfida: trasformare azienda chimica in Benefit.",
+            tags: ["Chemical", "Benefit", "Industry"],
+            url: "https://www.stacplastic.com"
+        },
+        {
+            name: "Klug APS",
+            location: "Torino",
+            dept: "Project Management",
+            slots: 1,
+            type: "Social Impact",
+            info: "Progettazione, sostenibilità, impatto.",
+            extra: "Associazione Promozione Sociale. Bandi culturali.",
+            analysis: "Gestione piccoli progetti culturali ad alto valore.",
+            tags: ["Culture", "APS", "Projects"],
+            url: "https://klugtorino.it"
+        },
+        {
+            name: "Maglificio Po Srl",
+            location: "Torino",
+            dept: "Amm/Finanza",
+            slots: 1,
+            type: "Corporate",
+            info: "Dati per Bilancio Sostenibilità 2025.",
+            extra: "Settore tessile: focus su Supply Chain e normative UE.",
+            analysis: "Analisi filiera tessile (molto attenzionata da UE).",
+            tags: ["Fashion", "Textile", "SupplyChain"],
+            url: "https://www.maglificiopo.it"
+        },
+        {
+            name: "Maider NCG Srl",
+            location: "Villastellone",
+            dept: "Amm/ESG",
+            slots: 1,
+            type: "Corporate",
+            info: "Reportistica impatti ambientali prodotti, economia circolare.",
+            extra: "Rigenerazione imballaggi industriali. Ibrido ESG/Finance.",
+            analysis: "Economia circolare B2B che genera risparmio economico.",
+            tags: ["Circular", "Packaging", "B2B"],
+            url: "https://www.maider.it"
+        },
+        {
+            name: "Intesa Sanpaolo",
+            location: "Torino",
+            dept: "People Attraction",
+            slots: 4,
+            type: "Corporate",
+            info: "Cultura ESG, competenze tecniche, learning.",
+            extra: "Banca sistemica. Top player ESG globale.",
+            analysis: "Focus su HR, formazione e cultura interna.",
+            tags: ["Bank", "Culture", "HR"],
+            url: "https://group.intesasanpaolo.com"
+        },
+        {
+            name: "MODO s.r.l.",
+            location: "Venaria Reale",
+            dept: "Sviluppo ESG",
+            slots: 1,
+            type: "Corporate",
+            info: "Certificazioni ISO, EcoVadis, supply chain.",
+            extra: "Noleggio arredi (Rental). Modello circolare 'As a Service'.",
+            analysis: "Gestione sostenibilità nel settore eventi/noleggio.",
+            tags: ["Rental", "Events", "ISO"],
+            url: "https://www.modorent.it"
         }
     ];
 
@@ -382,8 +622,8 @@
                     ${item.tags.map(tag => `<span style="font-size: 0.7rem; background: var(--bg-body); padding: 2px 8px; border-radius: 4px; color: var(--text-muted); border: 1px solid var(--border)">#${tag}</span>`).join('')}
                 </div>
 
-                <button class="expand-btn" onclick="openModal(${index})">
-                    <i class="fa-solid fa-eye"></i> Analisi Strategica
+                <button class="expand-btn" onclick="openModal('${item.name.replace(/'/g, "\\'")}')">
+                    <i class="fa-solid fa-eye"></i> Dettagli & Analisi
                 </button>
             `;
             container.appendChild(card);
@@ -394,44 +634,31 @@
     const modal = document.getElementById('modalOverlay');
     const modalBody = document.getElementById('modalBody');
 
-    window.openModal = function(index) {
-        const item = database[index]; // Note: search might mess up index, better to pass ID. But for simple static array this is fine if we search original array. 
-        // FIX: We need to find the item in the original array if filtered. 
-        // Actually, let's just use the item object directly if we were using React, but here let's lookup.
-        // Simplified: The render passes the index of the *filtered* array currently. 
-        // To be safe, let's look it up by name in the full DB.
-        
-        // Actually, easiest way for this static page:
-        const realItem = database.find(i => i.name === item.name); // Using name as key
+    window.openModal = function(name) {
+        const item = database.find(i => i.name === name);
 
         modalBody.innerHTML = `
             <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-main);">${realItem.name}</h2>
+            <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--text-main);">${item.name}</h2>
             <div style="margin-bottom: 1.5rem;">
-                <span class="badge ${getBadge(realItem.type)}">${realItem.type}</span>
-                <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">${realItem.location}</span>
+                <span class="badge ${getBadge(item.type)}">${item.type}</span>
+                <span style="margin-left: 1rem; color: var(--text-muted); font-size: 0.9rem;">${item.location}</span>
             </div>
 
             <div class="modal-section">
                 <div class="modal-label">Contesto & Dati</div>
-                <p class="modal-text">${realItem.extra}</p>
+                <p class="modal-text">${item.extra}</p>
             </div>
 
             <div class="modal-section">
                 <div class="modal-label">Analisi Master D-ESG</div>
-                <p class="modal-text" style="color: #cbd5e1;">${realItem.analysis}</p>
+                <p class="modal-text" style="color: #cbd5e1;">${item.analysis}</p>
             </div>
 
-            <div class="modal-section">
-                <div class="modal-label">La Domanda Strategica (Da fare al colloquio)</div>
-                <div class="highlight-box">
-                    <i class="fa-solid fa-circle-question" style="color: var(--accent); margin-right: 0.5rem;"></i>
-                    <span style="font-style: italic; color: white;" id="q-${index}">${realItem.question}</span>
-                    <br>
-                    <button class="copy-btn" onclick="copyText('q-${index}')">
-                        <i class="fa-regular fa-copy"></i> Copia domanda
-                    </button>
-                </div>
+            <div class="modal-section" style="text-align: center; margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.5rem;">
+                <a href="${item.url}" target="_blank" class="website-btn">
+                    <i class="fa-solid fa-globe"></i> Visita Sito Corporate
+                </a>
             </div>
         `;
         modal.classList.add('active');
@@ -441,13 +668,6 @@
     window.closeModal = function() {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
-
-    window.copyText = function(elementId) {
-        const text = document.getElementById(elementId).innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Domanda copiata negli appunti!");
-        });
     }
 
     modal.addEventListener('click', (e) => {
