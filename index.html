@@ -618,7 +618,7 @@
             reportUrl: "https://mindsatwork.it"
         },
         {
-                        name: "Solidarietà alimentare 2",
+            name: "Solidarietà alimentare 2",
             maturity: "med",
             location: "Grugliasco",
             dept: "Analisi Filiera",
@@ -775,12 +775,12 @@
             const card = document.createElement('div');
             card.className = 'card';
             
-            
+            // Animazione ingresso
             card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.05}s`;
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             
-           
+            // Logica Bottone Report
             let reportBtnHTML = '';
             if(item.reportUrl && item.reportUrl.length > 0) {
                 reportBtnHTML = `
@@ -799,7 +799,12 @@
                 </div>
 
                 <div class="company-name">${item.name}</div>
-                <div class="location"><i class="fa-solid fa-location-dot" style="color:var(--primary)"></i> ${item.location}</div>
+                
+                <div class="location">
+                    <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.location)}" target="_blank">
+                        <i class="fa-solid fa-location-dot" style="color:var(--primary)"></i> ${item.location}
+                    </a>
+                </div>
                 
                 <div class="role-section" style="margin-top:1rem;">
                     <div class="role-title">${item.dept}</div>
@@ -834,12 +839,11 @@
         });
     }
 
-  
+
     const styleSheet = document.createElement("style");
     styleSheet.innerText = `@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }`;
     document.head.appendChild(styleSheet);
 
-   
     const modal = document.getElementById('modalOverlay');
     const modalBody = document.getElementById('modalBody');
 
