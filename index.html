@@ -835,12 +835,12 @@
             const card = document.createElement('div');
             card.className = 'card';
             
-            // Animazione ingresso
+
             card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.05}s`;
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             
-            // Logica Bottone Report
+    
             let reportBtnHTML = '';
             if(item.reportUrl && item.reportUrl.length > 0) {
                 reportBtnHTML = `
@@ -974,7 +974,29 @@
 <button id="scrollTopBtn" title="Torna su">
     <i class="fa-solid fa-arrow-up"></i>
 </button>
-    
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.classList.add("show");
+    } else {
+        scrollBtn.classList.remove("show");
+    }
+}
+
+
+scrollBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' 
+    });
+});
 </script>
 </body>
 </html>
